@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="wasm"></div>
+    <div id="wasm2"></div>
+    <script src="./libs/index.js"></script>
+    <script>
+      const url = 'seven.wasm';
+      if ('WebAssembly' in window) {
+        var memObj = new WebAssembly.Memory({ initial: 256, maximum: 256 });
+        var importObject = {
+          // 想让c识别，必须是env
+          env: {
+            printValue: x => document.getElementById('wasm').innerHTML = 'Values: ' + 3 * x,
+            // memory: memObj
+          }
+        }
+        fetchAndInstantiateWasm2(url,importObject).then(exports=>{
+          console.log(exports)
+          document.getElementById('wasm2').innerHTML = exports.seven(3)
+        })
+
+        // WebAssembly.instantiateStreaming(fetch(url), importObject).then(result => {
+        //   document.getElementById('wasm').innerHTML = result.instance.exports.seven(1)
+        //   console.log(result.instance.exports.seven);
+
+        //   // new Uint32Array(memObj.buffer)[0] = 25;
+        //   // console.log(new Uint32Array(memObj.buffer))
+
+        //   // const offset = result.instance.exports._getOffset();
+        //   // const offset1 = result.instance.exports._getFirstOffset();
+        //   // const offset2 = result.instance.exports._getSecondOffset();
+        //   // var FirstArr = new Uint32Array(memObj.buffer, offset1, 8);
+        //   // FirstArr.fill(2);
+        //   // var SecondArr = new Uint32Array(memObj.buffer, offset2, 8);
+        //   // SecondArr.fill(3);
+        //   // const product = result.instance.exports_dot_product();
+        //   // document.getElementById('wasm2').innerHTML = 'dot product: ' + product;
+        //   console.log(result.instance.exports.seven(9))
+        // })
+      }
+
+
+    </script>
+  </body>
+
+</html>

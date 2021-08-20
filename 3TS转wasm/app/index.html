@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="./libs/index.js"></script>
+    <script>
+      // https://github.com/isrc-cas/PLCT-Open-Reports 一个ppt
+      // https://www.bilibili.com/video/BV14f4y1k7ax?from=search&seid=17509792923398002126 视频教程
+
+      // https://www.bilibili.com/video/BV1eK411u7Gy?from=search&seid=13057811142884869168 websembly原理
+      function fib(x) {
+        if (x <= 0) {
+          return 0;
+        }
+        if (x <= 2) {
+          return 1
+        }
+        return fib(x - 1) + fib(x - 2)
+      }
+      console.time('测试fib速度')
+      fib(40)
+      console.timeEnd('测试fib速度')
+
+
+      fetchAndInstantiateWasm('./libs/module.optimized.wasm', {})
+        .then(m => {
+          console.time('测试 wasm fib 速度');
+          var re = m.fib(40);
+          console.timeEnd('测试 wasm fib 速度');
+        });
+    </script>
+  </body>
+
+</html>

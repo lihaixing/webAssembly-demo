@@ -1,0 +1,50 @@
+Arguments: 
+  /Users/lihaixing/.nvm/versions/node/v10.23.2/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js watch
+
+PATH: 
+  /Users/lihaixing/.nvm/versions/node/v10.23.2/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/mysql/bin:/Users/lihaixing/Documents/learningDir/git-open:/Users/lihaixing/Documents/learningDir/switch:/Users/lihaixing/Documents/learningDir/flutterInstall/flutter/bin:/Users/lihaixing/Library/Android/sdk/tools:/Users/lihaixing/Library/Android/sdk/platform-tools:/Users/lihaixing/Documents/learningDir/emsdk:/Users/lihaixing/Documents/learningDir/emsdk/node/14.15.5_64bit/bin:/Users/lihaixing/Documents/learningDir/emsdk/upstream/emscripten:/usr/local/mysql/bin:/Users/lihaixing/Documents/learningDir/git-open:/Users/lihaixing/Documents/learningDir/switch:/Users/lihaixing/Documents/learningDir/flutterInstall/flutter/bin:/Users/lihaixing/Library/Android/sdk/tools:/Users/lihaixing/Library/Android/sdk/platform-tools:/Users/lihaixing/Documents/learningDir/emsdk:/Users/lihaixing/Documents/learningDir/emsdk/node/14.15.5_64bit/bin:/Users/lihaixing/Documents/learningDir/emsdk/upstream/emscripten
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.23.2
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/lihaixing/Documents/learningDir/webAssembly/webpackWasm2/package.json: Unexpected token } in JSON at position 234
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.16.0/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.16.0/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.16.0/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "@lihaixing/webpackWasm2",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "webpack",
+      "watch": "webpack --watch",
+  
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "html-webpack-plugin": "^5.3.2",
+      "webpack": "^5.51.1",
+      "webpack-cli": "^4.8.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
